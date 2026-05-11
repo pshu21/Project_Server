@@ -1,0 +1,246 @@
+:root {
+    --color-principal: #003ea1;
+    --color-secundario: #00758f;
+    --fondo-oscuro: #262c2e;
+    --texto-claro: #ffffff;
+    --fondo-claro: #f4f4f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Para que el meni baje suave */
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--fondo-claro);
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+header {
+    background-color: var(--fondo-oscuro);
+    color: var(--texto-claro);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* ocultar el checkbox de la hamburguesa */
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.menu ul li a {
+    color: var(--texto-claro);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+.menu ul li a:hover {
+    color: var(--color-secundario);
+}
+
+/* --- SECCIONES --- */
+.seccion {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.seccion h2 {
+    margin-bottom: 1.5rem;
+    color: var(--color-principal);
+}
+
+/* --- GALERÍA (CSS GRID) --- */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.foto-item {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.foto-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.foto-item p {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--fondo-oscuro);
+    color: var(--texto-claro);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* --- RESPONSIVE (MÓVILES) --- */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Mostrar icono hamburguesa */
+    }
+
+    .menu {
+        display: none; /* Ocultar menú por defecto */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--fondo-oscuro);
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .menu ul li {
+        border-top: 1px solid #444;
+    }
+
+    .menu ul li a {
+        display: block;
+        padding: 1rem;
+    }
+
+    /* para cuando el checkbox esta marcado se mostramos el menu */
+    .menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+}
+
+/* Estilos para tablas */
+.contenedor-tabla {
+    overflow-x: auto; /* scroll horizontal en movil */
+    margin: 2rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    color: #333;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para details y summary */
+details {
+    background: #e9ecef;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+summary {
+    font-weight: bold;
+    color: var(--color-principal);
+}
+
+
+/* --- FORMULARIO DE CONTACTO --- */
+.formulario-contacto {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.grupo-form {
+    margin-bottom: 1rem;
+}
+
+.grupo-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.grupo-form input,
+.grupo-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.btn-enviar {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+.btn-enviar:hover {
+    background-color: var(--color-secundario);
+}
+
+/* estilo especifico para la primera columna de los horarios (el nombre del día) */
+#horarios td:first-child {
+    font-weight: bold;
+    color: var(--color-principal);
+}
